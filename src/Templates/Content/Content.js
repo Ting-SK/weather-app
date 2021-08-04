@@ -4,15 +4,36 @@ import { ShowWeather } from "../ShowWeather";
 import { WriteCity } from "../WriteCity";
 
 export const Content = (props) => {
-  let { showWeather } = props;
+  let { showWeather, isLoading, weather } = props;
   return (
     <ContentWrapper>
       <WriteCity {...props} />
-      {showWeather && <ShowWeather {...props} />}
+      {isLoading ? (
+        <LoadTitle>Loading ...</LoadTitle>
+      ) : (
+        showWeather && (
+          <>
+            {weather.main !== undefined ? (
+              <ShowWeather {...props} />
+            ) : (
+              <Title>Указанный город не найден</Title>
+            )}
+          </>
+        )
+      )}
     </ContentWrapper>
   );
 };
-
+const LoadTitle = styled.p`
+  font-size: 18px;
+  text-align: center;
+  margin-top: 40%;
+`;
+const Title = styled.p`
+  font-size: 18px;
+  text-align: center;
+  margin-top: 30%;
+`;
 const ContentWrapper = styled.section`
   display: flex;
   padding: 10px;

@@ -16,7 +16,7 @@ export const App = () => {
   });
   const [showWeather, setShowWeather] = useState(false);
   const [check, setCheck] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
   function onChangeValue(e) {
     setValue(e.target.value);
   }
@@ -32,20 +32,22 @@ export const App = () => {
 
   useEffect(() => {
     const API_KEY = `594e5978ad1b3ecaa1651cfb29c9a33d`;
+    setIsLoading(true);
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
     )
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
+        console.log("result", result);
         setWeather({
           clouds: result?.clouds,
           main: result?.main,
           weather: result?.weather,
           wind: result?.wind,
         });
+        setIsLoading(false);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => alert("error", error));
   }, [city]);
   console.log("weather", weather);
 
@@ -89,6 +91,7 @@ export const App = () => {
         check={check}
       />
       <Content
+        isLoading={isLoading}
         showWeather={showWeather}
         weather={weather}
         value={value}
