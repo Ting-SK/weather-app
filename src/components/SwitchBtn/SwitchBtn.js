@@ -2,10 +2,10 @@ import { useState } from "react";
 import React from "./index";
 import "./SwitchBtn.css";
 
-export const SwitchBtn = ({ onCheck, check }) => {
+export const SwitchBtn = ({ themeToggler, theme }) => {
   return (
     <label class="switch">
-      <input type="checkbox" value={check} onClick={onCheck} />
+      <input type="checkbox" value={theme} onClick={themeToggler} />
       <span class="slider round"></span>
     </label>
   );

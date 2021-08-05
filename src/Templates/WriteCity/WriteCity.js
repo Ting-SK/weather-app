@@ -26,8 +26,9 @@ const Title = styled.p`
   text-align: center;
 `;
 const Button = styled.button`
-  color: #fafafa;
-  background: #9c8cbb;
+  // color: #fafafa;
+  color: ${({ theme }) => theme.text};
+  background: ${({ theme }) => theme.toggleBorder};
   margin-top: 20px;
   width: 285px;
   height: 40px;

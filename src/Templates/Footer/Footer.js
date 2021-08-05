@@ -21,7 +21,8 @@ const FooterWrapper = styled.footer`
   align-items: center;
   width: 100%;
   height: 100px;
-  background: #9c8cbb;
+  background: ${({ theme }) => theme.headFoot};
+  // background: #9c8cbb;
 `;
 
 const ImgAPI = styled.img`

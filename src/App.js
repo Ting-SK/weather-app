@@ -1,12 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./GlobalStyle";
 import { Content } from "./Templates/Content";
 import { Footer } from "./Templates/Footer";
 import { Header } from "./Templates/Header";
+import { lightTheme, darkTheme } from "./components/Theme/Theme";
 
 export const App = () => {
   const [value, setValue] = useState("");
+
+  function onChangeValue(e) {
+    setValue(e.target.value);
+  }
+  function onSubmitValue(e) {
+    e.preventDefault();
+    setCity(value);
+    setValue("");
+  }
+  console.log("value", value);
+
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState({
     clouds: "",
@@ -14,21 +26,7 @@ export const App = () => {
     weather: "",
     wind: "",
   });
-  const [showWeather, setShowWeather] = useState(false);
-  const [check, setCheck] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  function onChangeValue(e) {
-    setValue(e.target.value);
-  }
-
-  console.log("value", value);
-
-  function onSubmitValue(e) {
-    e.preventDefault();
-    setCity(value);
-    setValue("");
-  }
-  console.log("city", city);
 
   useEffect(() => {
     const API_KEY = `594e5978ad1b3ecaa1651cfb29c9a33d`;
@@ -49,16 +47,23 @@ export const App = () => {
       })
       .catch((error) => alert("error", error));
   }, [city]);
+
+  console.log("city", city);
   console.log("weather", weather);
+
+  const [showWeather, setShowWeather] = useState(false);
 
   useEffect(() => {
     setShowWeather(!showWeather);
   }, [weather]);
 
-  function onCheck() {
-    setCheck(!check);
-  }
-  console.log("check", check);
+  const [theme, setTheme] = useState("light");
+
+  const themeToggler = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
+
+  console.log("theme", theme);
 
   const inputEl = useRef(null);
   const onButtonClick = (e) => {
@@ -68,39 +73,28 @@ export const App = () => {
     }
   };
 
-  const themes = {
-    light: {
-      background: "#fff",
-      headFoot: "#9c8cbb",
-      headFootText: "#fafafa",
-    },
-    dark: {
-      background: "gray",
-      headFoot: "#000",
-      headFootText: "brown",
-    },
-  };
-
   return (
-    <AppWrapper>
-      <GlobalStyle />
-      <Header
-        onButtonClick={onButtonClick}
-        city={city}
-        onCheck={onCheck}
-        check={check}
-      />
-      <Content
-        isLoading={isLoading}
-        showWeather={showWeather}
-        weather={weather}
-        value={value}
-        onChangeValue={onChangeValue}
-        onSubmitValue={onSubmitValue}
-        inputEl={inputEl}
-      />
-      <Footer />
-    </AppWrapper>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <AppWrapper>
+        <GlobalStyle />
+        <Header
+          themeToggler={themeToggler}
+          theme={theme}
+          onButtonClick={onButtonClick}
+          city={city}
+        />
+        <Content
+          isLoading={isLoading}
+          showWeather={showWeather}
+          weather={weather}
+          value={value}
+          onChangeValue={onChangeValue}
+          onSubmitValue={onSubmitValue}
+          inputEl={inputEl}
+        />
+        <Footer />
+      </AppWrapper>
+    </ThemeProvider>
   );
 };
 

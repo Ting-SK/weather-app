@@ -18,7 +18,6 @@ export const InputCity = (props) => {
 const InputPlace = styled.input`
   width: 280px;
   height: 30px;
-  font-size: 18px;
   color: #000;
   background: transparent;
   border-bottom: 1px solid #fff;
@@ -26,6 +25,6 @@ const InputPlace = styled.input`
   overflow: hidden;
   &:focus {
     box-shadow: 0px 0.2em 2.5em #c4c4c4;
-    transform: scale(1.025); 
+    transform: scale(1.025);
   }
 `;

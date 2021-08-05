@@ -9,7 +9,7 @@ export const Header = (props) => {
     <HeaderWrapper>
       <SwitchBtn {...props} />
       <ChoosenCity onClick={onButtonClick}>
-        {city ? city : "Не выбрано"}
+        {city ? city : "Не выбран"}
       </ChoosenCity>
     </HeaderWrapper>
   );
@@ -22,11 +22,14 @@ const HeaderWrapper = styled.header`
   align-items: center;
   width: 100%;
   height: 90px;
-  background: #9c8cbb;
+  background: ${({ theme }) => theme.headFoot};
+  // background: #9c8cbb;
 `;
 const ChoosenCity = styled.p`
-  color: #fafafa;
-  font-size: 20px;
+  // color: #fafafa;
+  color: ${({ theme }) => theme.text};
+
+  font-size: 18px;
   text-decoration: underline;
   cursor: pointer;
 `;
