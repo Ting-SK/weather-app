@@ -5,6 +5,7 @@ import { Content } from "./Templates/Content";
 import { Footer } from "./Templates/Footer";
 import { Header } from "./Templates/Header";
 import { lightTheme, darkTheme } from "./components/Theme/Theme";
+import { AppProvider } from "./core/context";
 
 export const App = () => {
   const [value, setValue] = useState("");
@@ -75,25 +76,26 @@ export const App = () => {
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-      <AppWrapper>
-        <GlobalStyle />
-        <Header
-          themeToggler={themeToggler}
-          theme={theme}
-          onButtonClick={onButtonClick}
-          city={city}
-        />
-        <Content
-          isLoading={isLoading}
-          showWeather={showWeather}
-          weather={weather}
-          value={value}
-          onChangeValue={onChangeValue}
-          onSubmitValue={onSubmitValue}
-          inputEl={inputEl}
-        />
-        <Footer />
-      </AppWrapper>
+      <AppProvider>
+        <AppWrapper>
+          <GlobalStyle />
+          <Header
+            themeToggler={themeToggler}
+            theme={theme}
+            onButtonClick={onButtonClick}
+          />
+          <Content
+            isLoading={isLoading}
+            showWeather={showWeather}
+            weather={weather}
+            value={value}
+            onChangeValue={onChangeValue}
+            onSubmitValue={onSubmitValue}
+            inputEl={inputEl}
+          />
+          <Footer />
+        </AppWrapper>
+      </AppProvider>
     </ThemeProvider>
   );
 };

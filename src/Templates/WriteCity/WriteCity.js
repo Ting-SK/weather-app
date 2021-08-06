@@ -4,19 +4,19 @@ import { InputCity } from "../../components/InputCity";
 
 export const WriteCity = (props) => {
   let { onSubmitValue, showWeather } = props;
-  let button;
-  if (showWeather) {
-    button = <Button onClick={onSubmitValue}>Выбрать другой город</Button>;
-  } else {
-    button = <Button onClick={onSubmitValue}>Поиск</Button>;
-  }
+  // let button;
+  // if (showWeather) {
+  //   button = <Button onClick={onSubmitValue}>Выбрать другой город</Button>;
+  // } else {
+  //   button = <Button onClick={onSubmitValue}>Поиск</Button>;
+  // }
   return (
     <>
       {!showWeather && (
         <Title>Пожалуйста, напишите название вашего города</Title>
       )}
       {!showWeather && <InputCity {...props} />}
-      {button}
+      {/* {button} */}
     </>
   );
 };

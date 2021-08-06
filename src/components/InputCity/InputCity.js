@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
+import { useAppContext } from "../../core/context";
 
 export const InputCity = (props) => {
-  let { inputEl, onChangeValue, value, onSubmitValue } = props;
+  // let { inputEl, onChangeValue, value, onSubmitValue } = props;
+  const [value, setValue] = useState("");
+
+  let { setCity } = useAppContext();
+  const onSubmitForm = (e) => {
+    e.preventDefault();
+    setCity(value)
+  };
+  // let button;
+  //   if (showWeather) {
+  //     button = <Button onClick={onSubmitValue}>Выбрать другой город</Button>;
+  //   } else {
+  //   }
+  console.log(useAppContext())
   return (
-    <form onSubmit={onSubmitValue}>
+    <form onSubmit={onSubmitForm}>
       <InputPlace
-        ref={inputEl}
+        // ref={inputEl}
         value={value}
-        onChange={onChangeValue}
+        onChange={(event) => setValue(event.target.value)}
         placeholder="Название города"
       />
+      <button >Поиск</button>
     </form>
   );
 };

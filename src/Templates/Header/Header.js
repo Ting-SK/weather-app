@@ -1,10 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import styled from "styled-components";
 import { SwitchBtn } from "../../components/SwitchBtn";
+import {useAppContext} from "../../core/context";
 
 export const Header = (props) => {
-  let { onButtonClick, city } = props;
+  let { onButtonClick } = props;
+  
+  const appData = useAppContext();
+  console.log('apppData', appData);
 
+  let {city} = appData
   return (
     <HeaderWrapper>
       <SwitchBtn {...props} />
