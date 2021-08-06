@@ -1,21 +1,16 @@
-import React, {useContext} from "react";
 import styled from "styled-components";
 import { SwitchBtn } from "../../components/SwitchBtn";
-import {useAppContext} from "../../core/context";
+import { useAppContext } from "../../core/context";
 
 export const Header = (props) => {
-  let { onButtonClick } = props;
-  
-  const appData = useAppContext();
-  console.log('apppData', appData);
-
-  let {city} = appData
+  let { city, inputEl } = useAppContext();
+  const onFocus = () => {
+    inputEl.current.focus();
+  };
   return (
     <HeaderWrapper>
       <SwitchBtn {...props} />
-      <ChoosenCity onClick={onButtonClick}>
-        {city ? city : "Не выбран"}
-      </ChoosenCity>
+      <ChoosenCity onClick={onFocus}>{city} </ChoosenCity>
     </HeaderWrapper>
   );
 };
@@ -31,10 +26,11 @@ const HeaderWrapper = styled.header`
   // background: #9c8cbb;
 `;
 const ChoosenCity = styled.p`
-  // color: #fafafa;
   color: ${({ theme }) => theme.text};
-
-  font-size: 18px;
+  font-size: 16px;
   text-decoration: underline;
+  overflow: hidden;
+  width: 100px;
+  text-overflow: ellipsis;
   cursor: pointer;
 `;

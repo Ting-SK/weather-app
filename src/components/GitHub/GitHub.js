@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import OpenWeather from "../../image/OpenWeather.png";
 import { GithubOutlined } from "@ant-design/icons";
 
 export const GitHub = () => {

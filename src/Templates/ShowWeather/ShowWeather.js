@@ -1,54 +1,57 @@
 import React from "react";
 import styled from "styled-components";
 
-export const ShowWeather = ({ weather }) => {
-  if (typeof weather.wind !== "undefined") {
-    if (weather.wind.deg === 0 || weather.wind.deg === 360) {
-      weather.wind.deg = "Северный";
+export const ShowWeather = ({ weatherData }) => {
+  if (typeof weatherData.wind !== "undefined") {
+    if (weatherData.wind.deg === 0 || weatherData.wind.deg === 360) {
+      weatherData.wind.deg = "Северный";
     }
-    if (weather.wind.deg > 0 && weather.wind.deg < 90) {
-      weather.wind.deg = "Северо-восточный";
+    if (weatherData.wind.deg > 0 && weatherData.wind.deg < 90) {
+      weatherData.wind.deg = "Северо-восточный";
     }
-    if (weather.wind.deg === "90") {
-      weather.wind.deg = "Восточный";
+    if (weatherData.wind.deg === "90") {
+      weatherData.wind.deg = "Восточный";
     }
-    if (weather.wind.deg > 90 && weather.wind.deg < 180) {
-      weather.wind.deg = "Юго-восточный";
+    if (weatherData.wind.deg > 90 && weatherData.wind.deg < 180) {
+      weatherData.wind.deg = "Юго-восточный";
     }
-    if (weather.wind.deg === 180) {
-      weather.wind.deg = "Южный";
+    if (weatherData.wind.deg === 180) {
+      weatherData.wind.deg = "Южный";
     }
-    if (weather.wind.deg > 180 && weather.wind.deg < 270) {
-      weather.wind.deg = "Юго-западный";
+    if (weatherData.wind.deg > 180 && weatherData.wind.deg < 270) {
+      weatherData.wind.deg = "Юго-западный";
     }
-    if (weather.wind.deg === 270) {
-      weather.wind.deg = "Западный";
+    if (weatherData.wind.deg === 270) {
+      weatherData.wind.deg = "Западный";
     }
-    if (weather.wind.deg > 270 && weather.wind.deg < 360) {
-      weather.wind.deg = "Северо-западный";
+    if (weatherData.wind.deg > 270 && weatherData.wind.deg < 360) {
+      weatherData.wind.deg = "Северо-западный";
     }
   }
   return (
     <ShowWeatherWrapper>
       <WeathTitle>Погода на сегодня</WeathTitle>
       <p style={{ lineHeight: "30px", margin: "0" }}>
-        Температура: {weather?.main?.temp} ℃
+        Температура: {weatherData?.main?.temp} ℃
         <br />
-        Максимальная температура: {weather?.main?.temp_max} ℃
+        Максимальная температура: {weatherData?.main?.temp_max} ℃
         <br />
-        Минимальная температура: {weather?.main?.temp_min} ℃
+        Минимальная температура: {weatherData?.main?.temp_min} ℃
         <br />
-        Облачность: {weather?.clouds?.all}%
+        Облачность: {weatherData?.clouds?.all}%
         <br />
-        Влажность: {weather?.main?.humidity}%
+        Влажность: {weatherData?.main?.humidity}%
         <br />
-        Атмосферное давление: {(weather?.main?.pressure / 1.33).toFixed(0)} мм
-        рт.ст.
+        Атмосферное давление: {(weatherData?.main?.pressure / 1.33).toFixed(
+          0
+        )}{" "}
+        мм рт.ст.
         <br />
-        Погода: {weather.weather ? weather?.weather[0].main : ""}
-        {weather.weather ? weather?.weather[0].description : ""}
+        Погода:{" "}
+        {weatherData.weatherData ? weatherData?.weatherData[0].main : ""}
+        {weatherData.weatherData ? weatherData?.weatherData[0].description : ""}
         <br />
-        Ветер: {weather?.wind?.deg}, {weather?.wind?.speed} м/с
+        Ветер: {weatherData?.wind?.deg}, {weatherData?.wind?.speed} м/с
       </p>
     </ShowWeatherWrapper>
   );
@@ -64,6 +67,6 @@ const ShowWeatherWrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
   padding: 0;
 `;

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import React from "./index";
 import "./SwitchBtn.css";
 
