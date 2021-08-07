@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useAppContext } from "../context";
+import { useAppContext } from "../core/context";
 
 export const useWeather = (city) => {
   const [weatherData, setWeatherData] = useState({

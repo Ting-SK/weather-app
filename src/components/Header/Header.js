@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SwitchBtn } from "../../components/SwitchBtn";
+import { SwitchBtn } from "../../containers/SwitchBtn";
 import { useAppContext } from "../../core/context";
 
 export const Header = (props) => {

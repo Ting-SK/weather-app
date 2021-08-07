@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import OpenWeather from "../../image/OpenWeather.png";
-import { GitHub } from "../../components/GitHub";
+import OpenWeather from "../../assets/icons/OpenWeather.png";
+import { GitHub } from "../../containers/GitHub";
 
 export const Footer = () => {
   return (

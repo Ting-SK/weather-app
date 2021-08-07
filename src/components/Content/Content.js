@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { InputCity } from "../../components/InputCity";
-import { useAppContext } from "../../core/context";
-import { Weather } from "../Weather";
-import { WriteCity } from "../WriteCity";
+import { InputCity } from "../../containers/InputCity";
+import { Weather } from "../../containers/Weather";
 
 export const Content = () => {
   return (
