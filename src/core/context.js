@@ -1,13 +1,13 @@
-import React, { createContext, useContext, useRef, useState } from "react";
-
+import React, { createContext, useContext, useState } from "react";
+import { lightTheme } from "../lib/Theme/Theme";
 const AppContext = createContext({});
 
 export const AppProvider = (props) => {
   const [city, setCity] = useState("");
   const [value, setValue] = useState("");
-  const inputEl = useRef(null);
+  const [theme, setTheme] = useState(lightTheme);
 
-  let values = { city, setCity, value, setValue, inputEl };
+  let values = { city, setCity, value, setValue, theme, setTheme };
 
   return (
     <AppContext.Provider value={values}>{props.children}</AppContext.Provider>

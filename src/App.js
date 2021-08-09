@@ -1,38 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import React from "react";
 import { GlobalStyle } from "./GlobalStyle";
 import { Content } from "./components/Content";
 import { Footer } from "./components//Footer";
 import { Header } from "./components//Header";
-import { lightTheme, darkTheme } from "./lib/Theme/Theme";
 import { AppProvider, useAppContext } from "./core/context";
+import { AppWrapper } from "./lib/Styled/Styled";
+import { ThemeProvider } from "styled-components";
 
 export const App = () => {
-  const [theme, setTheme] = useState("light");
-  const themeToggler = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
-  };
-
+  let { theme } = useAppContext();
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-      <AppProvider>
+    <AppProvider>
+      {/* <ThemeProvider value={theme}> */}
         <AppWrapper>
           <GlobalStyle />
-          <Header themeToggler={themeToggler} theme={theme} />
+          <Header />
           <Content />
           <Footer />
         </AppWrapper>
-      </AppProvider>
-    </ThemeProvider>
+      {/* </ThemeProvider> */}
+    </AppProvider>
   );
 };
-
-const AppWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  // max-width: 800px;
-  width: 100vw;
-  height: 100vh;
-`;

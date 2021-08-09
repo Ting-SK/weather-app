@@ -1,8 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 import { useAppContext } from "../../core/context";
 import { useWeather } from "../../hooks/useWeather";
-import { ShowWeather } from "../ShowWeather";
+import { WeathTitle } from "../../lib/Styled/Styled";
+import { ShowWeather } from "../../components/ShowWeather";
 
 export const Weather = () => {
   let { city } = useAppContext();
@@ -16,9 +16,3 @@ export const Weather = () => {
 
   return <ShowWeather weatherData={weatherData} />;
 };
-
-const WeathTitle = styled.h4`
-  font-size: 18px;
-  font-weight: normal;
-  margin: 30% 0;
-`;

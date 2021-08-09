@@ -1,24 +1,13 @@
 import React from "react";
-import styled from "styled-components";
-import { InputCity } from "../../containers/InputCity";
+import { ChangeCity } from "../../containers/ChangeCity";
 import { Weather } from "../../containers/Weather";
+import { ContentWrapper } from "../../lib/Styled/Styled";
 
 export const Content = () => {
   return (
     <ContentWrapper>
-      <InputCity />
+      <ChangeCity />
       <Weather />
     </ContentWrapper>
   );
 };
-
-const ContentWrapper = styled.section`
-  display: flex;
-  padding: 10px;
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  margin-top: 20px;
-`;
