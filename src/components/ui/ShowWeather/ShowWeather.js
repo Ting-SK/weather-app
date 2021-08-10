@@ -1,5 +1,5 @@
 import React from "react";
-import {useWindDeg} from '../../../hooks/useWindDeg'
+import { useWindDeg } from "../../../hooks/useWindDeg";
 import { ResultTitle, ShowWeatherWrapper } from "./styles";
 
 export const ShowWeather = ({ weatherData }) => {
@@ -23,9 +23,7 @@ export const ShowWeather = ({ weatherData }) => {
         )}{" "}
         мм рт.ст.
         <br />
-        Погода:{" "}
-        {weatherData.weatherData ? weatherData?.weatherData[0].main : ""}
-        {weatherData.weatherData ? weatherData?.weatherData[0].description : ""}
+        Погода: {weatherData.weather[0].main}, {weatherData.weather[0].description}
         <br />
         Ветер: {winDeg}, {weatherData?.wind?.speed} м/с
       </p>

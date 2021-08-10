@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 
 export const useWindDeg = (weatherData) => {
   const [winDeg, setWinDeg] = useState("no-data");
+  // useEffect(() => {
+  //   console.log(weatherData.weather[0].description);
+  // }, [weatherData]);
   useEffect(() => {
     if (weatherData.wind.deg === 0 || weatherData.wind.deg === 360) {
       setWinDeg("Северный");
