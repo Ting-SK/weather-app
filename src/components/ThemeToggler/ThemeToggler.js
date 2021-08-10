@@ -9,7 +9,6 @@ export const ThemeToggler = () => {
   const handleChange = () => {
     theme === lightTheme ? setTheme(darkTheme) : setTheme(lightTheme);
   };
-  console.log("theme", theme);
 
   return (
     <Switch

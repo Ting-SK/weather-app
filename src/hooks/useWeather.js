@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useWeather = (city) => {
   const [weatherData, setWeatherData] = useState({
@@ -19,11 +19,11 @@ export const useWeather = (city) => {
     )
       .then((response) => response.json())
       .then((result) => {
-        if (result.cod === "404" ) {
-          setError('Город не найден');
+        if (result.cod === "404") {
+          setError("Город не найден");
         }
         if (result.cod === "400") {
-          setError('Напишите название города');
+          setError("Напишите название города");
         }
         setWeatherData({
           clouds: result?.clouds,
@@ -32,7 +32,6 @@ export const useWeather = (city) => {
           wind: result?.wind,
         });
         setIsLoading(false);
-        console.log("result", result);
       })
       .catch((error) => setError(error));
   }, [city]);

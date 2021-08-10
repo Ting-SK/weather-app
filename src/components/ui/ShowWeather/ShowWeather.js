@@ -23,7 +23,7 @@ export const ShowWeather = ({ weatherData }) => {
         )}{" "}
         мм рт.ст.
         <br />
-        Погода: {weatherData.weather[0].main}, {weatherData.weather[0].description}
+        Погода: {weatherData?.weather[0]?.main}, {weatherData?.weather[0]?.description}
         <br />
         Ветер: {winDeg}, {weatherData?.wind?.speed} м/с
       </p>
