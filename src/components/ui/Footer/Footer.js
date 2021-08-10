@@ -1,7 +1,7 @@
 import React from "react";
-import OpenWeather from "../../assets/icons/OpenWeather.png";
-import { FooterWrapper, ImgAPI } from "../../lib/Styled/Styled";
+import OpenWeather from "../../../assets/icons/OpenWeather.png";
 import { Links } from "../Links";
+import { FooterWrapper, ImgAPI } from "./styles";
 
 export const Footer = () => {
   return (

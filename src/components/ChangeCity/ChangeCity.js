@@ -1,7 +1,7 @@
 import React from "react";
 import { useAppContext } from "../../core/context";
-import { Button, Form } from "../../lib/Styled/Styled";
-import { Input } from "../../components/Input";
+import { Input } from "../ui/Input";
+import { Button, Form } from "./styles";
 
 export const ChangeCity = () => {
   let { setCity, value, setValue } = useAppContext();

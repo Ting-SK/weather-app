@@ -1,7 +1,7 @@
 import React from 'react'
-import { ThemeToggler } from '../../containers/ThemeToggler';
-import { useAppContext } from "../../core/context";
-import { ChoosenCity, HeaderWrapper } from "../../lib/Styled/Styled";
+import { ThemeToggler } from '../../ThemeToggler';
+import { useAppContext } from "../../../core/context";
+import { ChoosenCity, HeaderWrapper } from "./styles";
 
 export const Header = () => {
   let { city } = useAppContext();

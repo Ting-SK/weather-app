@@ -1,8 +1,8 @@
 import React from "react";
 import { useAppContext } from "../../core/context";
 import { useWeather } from "../../hooks/useWeather";
-import { WeathTitle } from "../../lib/Styled/Styled";
-import { ShowWeather } from "../../components/ShowWeather";
+import { ShowWeather } from "../ui/ShowWeather/ShowWeather";
+import { WeathTitle } from "./styles";
 
 export const Weather = () => {
   let { city } = useAppContext();

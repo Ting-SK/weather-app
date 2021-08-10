@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import { GithubOutlined } from "@ant-design/icons";
+import { Anchor, Text } from "./styles";
 
 export const Links = () => {
   return (
@@ -10,15 +10,3 @@ export const Links = () => {
     </Anchor>
   );
 };
-
-const Text = styled.p`
-  font-size: 12px;
-  color: #fafafa;
-`;
-
-const Anchor = styled.a`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;

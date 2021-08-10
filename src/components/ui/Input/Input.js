@@ -1,6 +1,6 @@
 import React from "react";
-import { useAppContext } from "../../core/context";
-import { InputPlace } from "../../lib/Styled/Styled";
+import { useAppContext } from "../../../core/context";
+import { InputPlace } from "./styles";
 
 export const Input = () => {
   let { setValue, value, inputEl } = useAppContext();

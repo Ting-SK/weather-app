@@ -1,6 +1,6 @@
 import React from "react";
-import { useWindDeg } from "../../hooks/useWindDeg";
-import { ResultTitle, ShowWeatherWrapper } from "../../lib/Styled/Styled";
+import {useWindDeg} from '../../../hooks/useWindDeg'
+import { ResultTitle, ShowWeatherWrapper } from "./styles";
 
 export const ShowWeather = ({ weatherData }) => {
   let [winDeg] = useWindDeg(weatherData);

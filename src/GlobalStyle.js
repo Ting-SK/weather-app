@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
  * {  
@@ -6,8 +6,7 @@ export const GlobalStyle = createGlobalStyle`
    outline: none;
 	}  
  body {
-   background: #FFF;
-   color: #000; 
+   color: ${({ theme }) => theme.text}; 
    font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
    transition: all 0.50s linear;
    display: flex;
@@ -22,4 +21,15 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
     text-decoration: none;
  }
+`;
+
+export const AppWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  // max-width: 800px;
+  width: 100vw;
+  height: 100vh;
+  background: ${({ theme }) => theme.body};
 `;

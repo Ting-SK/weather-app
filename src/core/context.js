@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
-import { lightTheme } from "../lib/Theme/Theme";
+import { lightTheme } from "../lib/theme/Theme";
+
 const AppContext = createContext({});
 
 export const AppProvider = (props) => {
