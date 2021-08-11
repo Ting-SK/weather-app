@@ -1,7 +1,8 @@
 # Weather-App
 
 This application shows the weather in the specified city.  
-The library is used React, react-hooks, styled-components. The OpenWeather API is used to get weather data.
+In the project were used React JS library, react-hooks, styled-components.  
+The OpenWeather API is used to get weather data.
 
 Open in [browser](https://ting-sk.github.io/weather-app/).
 
